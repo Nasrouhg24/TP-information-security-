@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Portal</title>
+<style>
+    button {
+        width: 150px;
+        height: 30px;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+    <h1>Student Portal</h1>
+    <!-- Add the name field -->
+    <!-- Add the password field -->
+    <!-- Add the Login button -->
+    <label for ="name">Name </label>
+    <input id="name" type="text">
+
+    <label for ="pass">password </label>
+    <input id="pass" type="password">
+
+    <button value="login" name="login" type="submit" onclick="login()" >Login</button>
+        
+    <script>
+        function login() {
+            window.location.href = "hello.html";
+        }
+    </script>
+</body>
+</html>

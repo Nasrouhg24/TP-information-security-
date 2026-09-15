@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Catch Me!</title>
+
+    <style>
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none; /*forces the button to not work and let what s underneath not work */
+        }
+      
+
+        #game {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #catchButton {
+            position: absolute;
+            top: 120px;
+            left: 150px;
+            padding: 0%;
+        }
+        #revealAttack{
+            opacity: 0;
+            position: relative;
+            z-index : 4 ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe src="portal.html"></iframe>
+
+    <div id="game">
+
+        <h1>Catch Me!</h1>
+
+        <p>Score: <span id="score">0</span></p>
+
+        <button id="catchButton" onclick="CatchMe()">
+            Catch Me
+        </button>
+
+        <button onclick="revealAttack()" id="revealAttack" > Reveal Hidden Page </button>
+
+
+        
+
+    </div>
+
+    <script>
+        function CatchMe() {
+         
+            let x = Math.random() * 500;
+            let y = Math.random() * 500;
+
+            let button = document.getElementById("catchButton");
+            let score = document.getElementById("score");
+            
+            let score_int = parseInt(score.textContent);
+            if (score_int==4){
+                
+                button.style.left = "500px";
+                button.style.top = "85px"; 
+                document.querySelector("iframe").style.zIndex = 3; 
+                let rev = document.getElementById("revealAttack");
+                rev.style.opacity = 1 ;
+
+
+            }else{
+                button.style.left = x + "px";
+                button.style.top = y + "px";
+            }
+            score_int++;
+            score.textContent = score_int;
+            
+
+        }
+
+        function revealAttack(){
+            let iframe = document.querySelector("iframe");
+            iframe.style.opacity = 0.5;
+            iframe.style.pointerEvents = "auto";
+        }
+    </script>
+
+</body>
+</html>
+
